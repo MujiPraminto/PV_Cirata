@@ -3,50 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Spreadsheet Chart with Download</title>
+    <title>PV Cirata Forecasting</title>
     <style>
-        /* Styling untuk tombol download */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chart-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .button-container {
+            text-align: center;
+        }
         .download-button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 16px;
-            background-color: #4CAF50;
+            font-weight: bold;
+            background-color: #3498db;
             color: white;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 20px;
-            margin-right: 10px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
         }
-
         .download-button:hover {
-            background-color: #45a049;
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
     <h1>PV Cirata Forecasting</h1>
-
-    <!-- Iframe Google Spreadsheet -->
-    <iframe width="600" height="371" seamless frameborder="10" scrolling="yes" 
-    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vScx7lNWFNLMEBwECci-00AxjgcyEKkzO9MBlfjFMvOAxgWtnlFHxyJS9hJN038Lw/pubchart?oid=2121816799&amp;format=interactive"></iframe>
-
-    <!-- Tombol Download Data dari Google Spreadsheet -->
-    <a href="https://docs.google.com/spreadsheets/d/1-1kW-qhWxqDHgdfq0U2d67J5od_adpzN/gviz/tq?tqx=out:csv&sheet=Sheet1" 
-       class="download-button" download>
-        Download Data (CSV)
-    </a>
-    <a href="https://docs.google.com/spreadsheets/d/1-1kW-qhWxqDHgdfq0U2d67J5od_adpzN/export?format=xlsx&gid=0" 
-       class="download-button" download>
-        Download Data (Excel)
-    </a>
-
-    <!-- JavaScript untuk refresh otomatis setiap 10 menit -->
+    <div class="chart-container">
+        <iframe width="100%" height="400" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vScx7lNWFNLMEBwECci-00AxjgcyEKkzO9MBlfjFMvOAxgWtnlFHxyJS9hJN038Lw/pubchart?oid=2121816799&amp;format=interactive"></iframe>
+    </div>
+    <div class="button-container">
+        <a href="https://docs.google.com/spreadsheets/d/1-1kW-qhWxqDHgdfq0U2d67J5od_adpzN/gviz/tq?tqx=out:csv&sheet=Sheet1" class="download-button" download>
+            Download Data (CSV)
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1-1kW-qhWxqDHgdfq0U2d67J5od_adpzN/export?format=xlsx&gid=0" class="download-button" download>
+            Download Data (Excel)
+        </a>
+    </div>
     <script type="text/javascript">
         setInterval(function(){
             var iframe = document.getElementsByTagName('iframe')[0];
             iframe.src = iframe.src;
-        }, 300000); // 10 menit
+        }, 600000); // 10 minutes
     </script>
 </body>
 </html>
